@@ -10,6 +10,7 @@ library(here)
 library(lubridate)
 library(tidytuesdayR)
 library(viridis)
+
 #### Load Data ####
 tuesdata <- tidytuesdayR::tt_load('2021-03-02') #Loads in Tidy Tuesday data for this week
 youtube <- tuesdata$youtube
@@ -23,9 +24,9 @@ ggplot(data = youtube, #uses this Tidy Tuesday dataset
   labs(x = "Year", #gives labels 
       y = "Brand",
       title = "Whether or not a brand had a commercial appear in that year's Super Bowl") +
-  scale_color_viridis(discrete=TRUE) +
-  theme_bw() +
-  ggsave(here("Tidy_Tuesday1","Output","TidyTuesday1Plot.png"), #exported plot as an image 
+  scale_color_viridis(discrete=TRUE) + #corrects colors for color-blindness 
+  theme_bw() + #changes theme 
+  ggsave(here("Tidy_Tuesday1","Output","TidyTuesday1Plot.png"), #exports plot as an image 
          width = 7, height = 5)
   
 
